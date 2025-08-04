@@ -22,13 +22,16 @@ class ZeptoMailTransport implements TransportInterface
 {
     protected string $apikey;
     protected string $host;
+    protected array $clientOptions;
     protected HttpClient $client;
 
-    public function __construct(string $apikey, string $host)
+    public function __construct(string $apikey, string $host, $clientOptions)
     {
         $this->apikey = $apikey;
         $this->host = $host;
-        $this->client = new HttpClient();
+        $this->client = new HttpClient([
+            'verify' => $clientOptions['verify'] ?? true, // SSL verification
+        ]);
     }
 
     public function send(RawMessage $message, Envelope $envelope = null): ?SentMessage
