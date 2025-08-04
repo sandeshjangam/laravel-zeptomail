@@ -1,5 +1,5 @@
 {
-    "name": "zohomail/laravel-zeptomail",
+    "name": "sandeshjangam/laravel-zeptomail",
     "description": "Custom Mail Driver Plugin for Laravel",
     "type": "library",
     "keywords": [
