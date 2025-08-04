@@ -93,8 +93,12 @@ class ZeptoMailTransport implements TransportInterface
      */
     private function getEndpoint(): ?string
     {
+        if (isset($this->domainMapping[$this->host])) {
+            return "https://zeptomail.".$this->domainMapping[$this->host].'/v1.1/email';
+        }
 
-        return "https://zeptomail.".$this->domainMapping[$this->host].'/v1.1/email';
+        return $this->host . '/v1.1/email';
+
     }
         /**
      * @param Email $email
