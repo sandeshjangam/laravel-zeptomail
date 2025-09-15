@@ -100,7 +100,7 @@ class ZeptoMailTransport implements TransportInterface
             return "https://zeptomail.".$this->domainMapping[$this->host].'/v1.1/email';
         }
 
-        return $this->host . '/v1.1/email';
+        return "https://" . $this->host . '/v1.1/email';
 
     }
         /**
